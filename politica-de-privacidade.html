@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - ZapSend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #25D366;
+            --secondary-color: #128C7E;
+            --dark-bg: #0b141a;
+            --card-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-color: #62D9C7;
+            --border-color: #2a2a2a;
+            --hover-color: #2ed573;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b141a 0%, #1a1a1a 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .last-updated {
+            background: rgba(0,0,0,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+
+        .nav h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            background: rgba(98, 217, 199, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .section h2 {
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '🔒';
+            font-size: 0.9em;
+        }
+
+        .section h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section h4 {
+            color: var(--accent-color);
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .section li strong {
+            color: var(--accent-color);
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box.warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border-left-color: #ffc107;
+        }
+
+        .highlight-box.info {
+            background: linear-gradient(135deg, rgba(98, 217, 199, 0.1) 0%, rgba(37, 211, 102, 0.1) 100%);
+            border-left-color: var(--accent-color);
+        }
+
+        .highlight-box strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .contact-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .footer .version {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--hover-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .section {
+                background: white;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            .nav, .scroll-top {
+                display: none;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔒 Política de Privacidade</h1>
+            <div class="subtitle">ZapSend - Envio de Mensagens em Massa</div>
+            <div class="last-updated">Última atualização: 2024</div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <h3>📑 Navegação Rápida</h3>
+            <div class="nav-links">
+                <a href="#introducao" class="nav-link">1. Introdução</a>
+                <a href="#informacoes" class="nav-link">2. Informações</a>
+                <a href="#uso" class="nav-link">3. Como Usamos</a>
+                <a href="#armazenamento" class="nav-link">4. Armazenamento</a>
+                <a href="#compartilhamento" class="nav-link">5. Compartilhamento</a>
+                <a href="#seguranca" class="nav-link">6. Segurança</a>
+                <a href="#direitos" class="nav-link">7. Seus Direitos</a>
+                <a href="#contato" class="nav-link">13. Contato</a>
+            </div>
+        </nav>
+
+        <!-- Section 1: Introdução -->
+        <section id="introducao" class="section">
+            <h2>1. Introdução</h2>
+            <p>Esta Política de Privacidade descreve como a extensão <strong>ZapSend - Envio de Mensagens em Massa</strong> ("nós", "nosso" ou "extensão") coleta, usa, armazena e protege suas informações pessoais quando você utiliza nossa extensão para Google Chrome.</p>
+            <div class="highlight-box">
+                <strong>⚠️ Consentimento</strong>
+                <p>Ao usar a extensão ZapSend, você concorda com a coleta e uso de informações de acordo com esta política. Se você não concordar com esta política, por favor, não utilize nossa extensão.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Informações que Coletamos -->
+        <section id="informacoes" class="section">
+            <h2>2. Informações que Coletamos</h2>
+            
+            <h3>2.1. Informações Fornecidas pelo Usuário</h3>
+            <ul>
+                <li><strong>Número de WhatsApp</strong>: Coletamos o número de telefone do WhatsApp que você informa durante a configuração inicial da extensão. Este número é necessário para o funcionamento básico da extensão.</li>
+                <li><strong>Números de Destinatários</strong>: Coletamos os números de telefone dos destinatários que você deseja contatar através da extensão. Estes números podem ser inseridos manualmente ou importados via arquivos Excel/CSV.</li>
+                <li><strong>Mensagens e Conteúdo</strong>: Armazenamos temporariamente as mensagens que você compõe na extensão para permitir o envio em massa. As mensagens são processadas localmente e não são armazenadas permanentemente em nossos servidores.</li>
+                <li><strong>Arquivos Anexados</strong>: Quando você anexa arquivos (imagens, documentos, vídeos) para envio, estes são processados localmente no seu navegador. Os arquivos não são enviados para nossos servidores.</li>
+                <li><strong>Templates e Campanhas</strong>: Armazenamos localmente os templates de mensagens e listas de campanhas que você salva para uso futuro.</li>
+            </ul>
+
+            <h3>2.2. Informações Coletadas Automaticamente</h3>
+            <ul>
+                <li><strong>Informações de Localização</strong>: Coletamos informações sobre seu país, cidade e região através de serviços de geolocalização baseados em IP (como get.geojs.io) para personalização da experiência e validação de licenças.</li>
+                <li><strong>Informações de Ativação</strong>: Quando você ativa uma licença ou utiliza o período de teste, coletamos:
+                    <ul>
+                        <li>Chave de ativação utilizada</li>
+                        <li>Data de ativação e expiração</li>
+                        <li>Tipo de licença (trial, mensal, vitalícia)</li>
+                        <li>Informações técnicas do dispositivo (versão do navegador, sistema operacional, timezone)</li>
+                    </ul>
+                </li>
+                <li><strong>Email do Usuário</strong>: Se disponível através da API do Chrome, podemos coletar o endereço de email associado à sua conta do Google para fins de identificação e suporte.</li>
+                <li><strong>Dados de Grupos e Contatos</strong>: A extensão acessa informações de grupos e contatos do WhatsApp Web para permitir o envio de mensagens. Estes dados são armazenados localmente no seu navegador.</li>
+                <li><strong>Estatísticas de Uso</strong>: Coletamos informações sobre o uso da extensão, incluindo:
+                    <ul>
+                        <li>Número de mensagens enviadas</li>
+                        <li>Taxa de sucesso/falha de envios</li>
+                        <li>Relatórios de entrega</li>
+                        <li>Configurações de intervalo e lotes</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2.3. Informações Técnicas</h3>
+            <ul>
+                <li><strong>Versão da Extensão</strong>: Versão atual da extensão instalada</li>
+                <li><strong>User Agent</strong>: Informações sobre seu navegador e sistema operacional</li>
+                <li><strong>Timezone</strong>: Fuso horário do seu dispositivo</li>
+                <li><strong>Idioma do Navegador</strong>: Idioma configurado no seu navegador</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Como Usamos -->
+        <section id="uso" class="section">
+            <h2>3. Como Usamos Suas Informações</h2>
+            
+            <h3>3.1. Funcionalidades da Extensão</h3>
+            <p>Utilizamos suas informações para:</p>
+            <ul>
+                <li><strong>Envio de Mensagens</strong>: Processar e enviar mensagens em massa através do WhatsApp Web</li>
+                <li><strong>Personalização</strong>: Personalizar mensagens usando variáveis dinâmicas (nome, email, telefone) de planilhas Excel</li>
+                <li><strong>Gerenciamento de Campanhas</strong>: Organizar e gerenciar suas campanhas de envio</li>
+                <li><strong>Relatórios</strong>: Gerar relatórios de entrega e estatísticas de campanhas</li>
+                <li><strong>Aquecimento de Números</strong>: Funcionalidade de aquecimento automático de números com conversas inteligentes</li>
+            </ul>
+
+            <h3>3.2. Validação e Licenciamento</h3>
+            <ul>
+                <li><strong>Validação de Chaves</strong>: Verificamos a validade das chaves de ativação através de serviços online</li>
+                <li><strong>Controle de Expiração</strong>: Monitoramos a validade de licenças e períodos de teste</li>
+                <li><strong>Proteção Anti-Fraude</strong>: Implementamos medidas de segurança para prevenir uso indevido de licenças</li>
+            </ul>
+
+            <h3>3.3. Melhorias e Análise</h3>
+            <ul>
+                <li><strong>Análise de Uso</strong>: Utilizamos dados agregados e anonimizados para melhorar a extensão</li>
+                <li><strong>Google Analytics</strong>: Podemos utilizar Google Analytics para rastrear eventos e melhorar a experiência do usuário</li>
+                <li><strong>Suporte ao Cliente</strong>: Utilizamos informações para fornecer suporte técnico quando necessário</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Armazenamento -->
+        <section id="armazenamento" class="section">
+            <h2>4. Armazenamento de Dados</h2>
+            
+            <h3>4.1. Armazenamento Local</h3>
+            <p>A maioria dos dados é armazenada localmente no seu navegador usando:</p>
+            <ul>
+                <li><strong>Chrome Storage Local</strong>: Dados como números de telefone, mensagens, templates, campanhas e configurações são armazenados localmente no seu dispositivo</li>
+                <li><strong>Chrome Storage Sync</strong>: Algumas informações de configuração e preferências podem ser sincronizadas entre seus dispositivos quando você está logado no Chrome</li>
+            </ul>
+
+            <div class="highlight-box info">
+                <strong>✅ Dados Não Armazenados em Servidores</strong>
+                <p><strong>Importante</strong>: Não armazenamos suas mensagens, números de destinatários ou arquivos anexados em nossos servidores. Todos estes dados permanecem no seu dispositivo local.</p>
+            </div>
+
+            <h3>4.3. Dados Enviados para Servidores Externos</h3>
+            <p>Apenas as seguintes informações são enviadas para serviços externos:</p>
+            <ul>
+                <li><strong>Informações de Ativação</strong>: Quando você ativa uma licença, enviamos informações de ativação (chave, data, informações técnicas) para um webhook (Make.com) para registro e controle de licenças</li>
+                <li><strong>Informações de Geolocalização</strong>: Solicitamos informações de localização através de serviços de geolocalização baseados em IP</li>
+                <li><strong>Validação de Chaves</strong>: Verificamos a validade de chaves através de arquivos hospedados no GitHub</li>
+            </ul>
+        </section>
+
+        <!-- Section 5: Compartilhamento -->
+        <section id="compartilhamento" class="section">
+            <h2>5. Compartilhamento de Informações</h2>
+            
+            <div class="highlight-box">
+                <strong>🚫 Não Vendemos Dados</strong>
+                <p><strong>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins comerciais.</strong></p>
+            </div>
+
+            <h3>5.2. Serviços de Terceiros</h3>
+            <p>Podemos compartilhar informações limitadas com os seguintes serviços:</p>
+            <ul>
+                <li><strong>Make.com (Webhook)</strong>: Para registro de ativações de licenças</li>
+                <li><strong>get.geojs.io</strong>: Para obtenção de informações de localização baseadas em IP</li>
+                <li><strong>GitHub</strong>: Para validação de chaves de ativação</li>
+                <li><strong>Google Analytics</strong>: Para análise de uso (dados agregados e anonimizados)</li>
+            </ul>
+
+            <h3>5.3. Requisitos Legais</h3>
+            <p>Podemos divulgar suas informações se exigido por lei ou em resposta a solicitações legais válidas de autoridades governamentais.</p>
+        </section>
+
+        <!-- Section 6: Segurança -->
+        <section id="seguranca" class="section">
+            <h2>6. Segurança dos Dados</h2>
+            
+            <h3>6.1. Medidas de Segurança</h3>
+            <p>Implementamos medidas de segurança para proteger suas informações:</p>
+            <ul>
+                <li><strong>Armazenamento Local</strong>: Dados sensíveis são armazenados localmente no seu dispositivo</li>
+                <li><strong>Criptografia</strong>: Utilizamos as proteções de segurança padrão do Chrome</li>
+                <li><strong>Validação de Dados</strong>: Validamos números de telefone e dados de entrada para prevenir erros</li>
+            </ul>
+
+            <h3>6.2. Limitações</h3>
+            <p>Embora nos esforcemos para proteger suas informações, nenhum método de transmissão ou armazenamento é 100% seguro. Você é responsável por manter a segurança do seu dispositivo e conta do WhatsApp.</p>
+        </section>
+
+        <!-- Section 7: Direitos -->
+        <section id="direitos" class="section">
+            <h2>7. Seus Direitos</h2>
+            
+            <h3>7.1. Acesso e Controle</h3>
+            <p>Você tem o direito de:</p>
+            <ul>
+                <li><strong>Acessar seus dados</strong>: Você pode visualizar os dados armazenados localmente através das ferramentas de desenvolvedor do Chrome</li>
+                <li><strong>Excluir dados</strong>: Você pode excluir todos os dados da extensão desinstalando-a ou limpando o storage local</li>
+                <li><strong>Corrigir informações</strong>: Você pode atualizar suas informações através da interface da extensão</li>
+            </ul>
+
+            <h3>7.2. Desinstalação</h3>
+            <p>Ao desinstalar a extensão, todos os dados armazenados localmente são removidos. Algumas informações podem permanecer no Chrome Storage Sync se você estiver logado.</p>
+
+            <h3>7.3. LGPD e GDPR</h3>
+            <div class="highlight-box info">
+                <strong>✅ Conformidade Legal</strong>
+                <p>Esta política está em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD)</strong> do Brasil e o <strong>Regulamento Geral sobre a Proteção de Dados (GDPR)</strong> da União Europeia.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Retenção -->
+        <section class="section">
+            <h2>8. Retenção de Dados</h2>
+            
+            <h3>8.1. Dados Locais</h3>
+            <p>Os dados armazenados localmente permanecem no seu dispositivo até que você:</p>
+            <ul>
+                <li>Desinstale a extensão</li>
+                <li>Limpe manualmente o storage do Chrome</li>
+                <li>Remova os dados através das configurações da extensão</li>
+            </ul>
+
+            <h3>8.2. Dados de Ativação</h3>
+            <p>Informações de ativação enviadas para nossos sistemas são mantidas apenas pelo tempo necessário para:</p>
+            <ul>
+                <li>Validação de licenças</li>
+                <li>Prevenção de fraudes</li>
+                <li>Cumprimento de obrigações legais</li>
+            </ul>
+        </section>
+
+        <!-- Section 9: Cookies -->
+        <section class="section">
+            <h2>9. Cookies e Tecnologias Similares</h2>
+            <p>A extensão utiliza o Chrome Storage API, que funciona de forma similar a cookies, para:</p>
+            <ul>
+                <li>Armazenar preferências do usuário</li>
+                <li>Manter sessões de ativação</li>
+                <li>Sincronizar configurações entre dispositivos</li>
+            </ul>
+        </section>
+
+        <!-- Section 10: Menores -->
+        <section class="section">
+            <h2>10. Privacidade de Menores</h2>
+            <p>Nossa extensão não é direcionada a menores de 18 anos. Não coletamos intencionalmente informações de menores. Se você é pai/mãe ou responsável e acredita que seu filho nos forneceu informações pessoais, entre em contato conosco.</p>
+        </section>
+
+        <!-- Section 11: Alterações -->
+        <section class="section">
+            <h2>11. Alterações nesta Política</h2>
+            <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre mudanças significativas publicando a nova política nesta página e atualizando a data de "Última atualização".</p>
+            <p>Recomendamos que você revise esta política periodicamente para se manter informado sobre como protegemos suas informações.</p>
+        </section>
+
+        <!-- Section 12: WhatsApp -->
+        <section class="section">
+            <h2>12. WhatsApp e Terceiros</h2>
+            
+            <h3>12.1. WhatsApp Web</h3>
+            <p>Esta extensão funciona integrada ao WhatsApp Web. Ao usar a extensão, você também está sujeito aos Termos de Serviço e Política de Privacidade do WhatsApp.</p>
+
+            <h3>12.2. Responsabilidade</h3>
+            <div class="highlight-box warning">
+                <strong>⚠️ Importante</strong>
+                <p>Esta extensão é uma ferramenta de automação. Você é responsável por:</p>
+                <ul>
+                    <li>Cumprir os Termos de Serviço do WhatsApp</li>
+                    <li>Não enviar spam ou mensagens não solicitadas</li>
+                    <li>Respeitar as leis de proteção de dados e privacidade</li>
+                    <li>Obter consentimento adequado antes de enviar mensagens em massa</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Não nos responsabilizamos por bloqueios ou penalidades aplicadas pelo WhatsApp devido ao uso inadequado da extensão.</strong></p>
+            </div>
+        </section>
+
+        <!-- Section 13: Contato -->
+        <section id="contato" class="section">
+            <h2>13. Contato</h2>
+            <p>Se você tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos suas informações, entre em contato conosco:</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="icon">📧</div>
+                    <h4>Email</h4>
+                    <a href="mailto:support@ZapSend.com">support@ZapSend.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="icon">💬</div>
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/555194981842" target="_blank">+55 51 9498-1842</a>
+                </div>
+                <div class="contact-card">
+                    <div class="icon">🌐</div>
+                    <h4>Website</h4>
+                    <a href="https://www.ZapSend.com/" target="_blank">www.ZapSend.com</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 14: Consentimento -->
+        <section class="section">
+            <h2>14. Consentimento</h2>
+            <p>Ao usar a extensão ZapSend, você declara que leu, compreendeu e concorda com esta Política de Privacidade.</p>
+            <div class="highlight-box">
+                <strong>⚠️ Aviso Final</strong>
+                <p>Se você não concordar com qualquer parte desta política, por favor, não utilize nossa extensão.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Data de Vigência</strong>: Esta política entra em vigor a partir da data de publicação e se aplica a todos os usuários da extensão ZapSend.</p>
+            <p class="version">Versão: 1.0</p>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+
